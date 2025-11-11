@@ -1,200 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Profile Animation</title>
+<html>
+  <head>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0d1117; /* GitHub dark theme */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Courier New', monospace;
-            overflow: hidden;
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #3a3a3a;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        width: 500px;
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        font-weight: 300;
+      }
+
+      .document-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: black;
+        border: 1px solid #555;
+        padding: 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      .scrolling-content {
+        position: absolute;
+        top: 100%;
+        width: 90%;
+        animation: scrollUp 30s linear infinite;
+        white-space: pre-wrap;
+        line-height: 1.6;
+        font-size: 16px;
+        letter-spacing: 0.3px;
+      }
+
+      @keyframes scrollUp {
+        0% {
+          top: 0%;
+          opacity: 1;
         }
-        
-        .container {
-            position: relative;
-            width: 600px;
-            height: 300px;
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-            overflow: hidden;
+        /* 5% {
+          opacity: 1;
         }
-        
-        .scan-line {
+        95% {
+          opacity: 1;
+        } */
+        100% {
+          top: -200%;
+          opacity: 1;
+        }
+      }
+
+      .normal-text {
+        color: #ffffff;
+        display: inline;
+        font-weight: 400;
+      }
+
+      .redacted-text {
+        color: #666666;
+        display: inline;
+        position: relative;
+        background: rgba(100, 100, 100, 0.2);
+        padding: 1px 4px;
+        border-radius: 2px;
+      }
+
+      .redacted-text::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        height: 14px;
+        background: #888888;
+        transform: translateY(-50%);
+        border-radius: 2px;
+      }
+
+      .line-break {
+        display: block;
+        height: 0.1em;
+      }
+
+      /* .footer {
             position: absolute;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, rgba(0, 255, 255, 0.8), transparent);
-            animation: scan 3s linear infinite;
-            z-index: 10;
-        }
-        
-        @keyframes scan {
-            0% { top: 0; opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
-        
-        .content {
-            padding: 30px;
-            color: #c9d1d9;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            color: #58a6ff;
-            text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
-            border-right: 2px solid #58a6ff;
-            width: 0;
-            animation-fill-mode: forwards;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #58a6ff }
-        }
-        
-        .subtitle {
-            font-size: 18px;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 1s ease-in 3s forwards;
-        }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            opacity: 0;
-            animation: fadeIn 1s ease-in 4s forwards;
-        }
-        
-        .tag {
-            background-color: #21262d;
-            border: 1px solid #30363d;
-            border-radius: 20px;
-            padding: 5px 12px;
-            font-size: 14px;
-            color: #7ee787;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .glitch {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJub25lIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iIzE2MWIyMiIvPjwvc3ZnPg==');
-            opacity: 0.05;
-            mix-blend-mode: overlay;
-            animation: glitch 5s infinite linear;
-        }
-        
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
-        
-        .pulse {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 6px;
-            box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.7);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(88, 166, 255, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(88, 166, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(88, 166, 255, 0); }
-        }
+            bottom: 20px;
+            width: calc(100% - 80px);
+            text-align: center;
+            font-size: 12px;
+            color: #777777;
+            border-top: 1px solid #555;
+            padding-top: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        } */
+
+      .section-header {
+        font-weight: 600;
+        color: #e0e0e0;
+        margin-top: 1.2em;
+        margin-bottom: 0.5em;
+        font-size: 1.1em;
+      }
+
+      .highlight {
+        color: #ffffff;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <div class="scan-line"></div>
-        <div class="glitch"></div>
-        <div class="pulse"></div>
-        <div class="content">
-            <div class="title" id="title">HELLO WORLD!</div>
-            <div class="subtitle" id="subtitle">MARIE-LINNE BLOCK</div>
-            <div class="tags" id="tags">
-                <span class="tag">AL/ML</span>
-                <span class="tag">Data Science</span>
-                <span class="tag">Creative Coding</span>
-            </div>
-        </div>
+  </head>
+  <body>
+    <div class="document-container">
+      <div class="scrolling-content" id="scrollingText">
+        <!-- Текст будет добавляться через JavaScript -->
+      </div>
+      <!-- <div class="footer">
+            DECLASSIFICATION IN PROGRESS • AUTOMATED CYCLE • CONFIRMATION REQUIRED
+        </div> -->
     </div>
 
     <script>
-        // Функция для обновления текста
-        function updateProfile(title, subtitle, tags) {
-            document.getElementById('title').textContent = title;
-            document.getElementById('subtitle').textContent = subtitle;
-            
-            const tagsContainer = document.getElementById('tags');
-            tagsContainer.innerHTML = '';
-            
-            tags.forEach(tag => {
-                const tagElement = document.createElement('span');
-                tagElement.className = 'tag';
-                tagElement.textContent = tag;
-                tagsContainer.appendChild(tagElement);
-            });
-            
-            // Перезапуск анимации
-            document.getElementById('title').style.animation = 'none';
-            document.getElementById('subtitle').style.animation = 'none';
-            document.getElementById('tags').style.animation = 'none';
-            
-            setTimeout(() => {
-                document.getElementById('title').style.animation = 'typing 3s steps(40, end), blink-caret 0.75s step-end infinite';
-                document.getElementById('title').style.animationFillMode = 'forwards';
-                document.getElementById('subtitle').style.animation = 'fadeIn 1s ease-in 3s forwards';
-                document.getElementById('tags').style.animation = 'fadeIn 1s ease-in 4s forwards';
-            }, 10);
+      // Ваш текст с поддержкой смешанного содержания и переносов строк
+      const documentContent = [
+        { type: "normal", text: "   " },
+        { type: "redacted", text: "\nВсем привет!asdahjksdasjkhgbdfa" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "Всем пsdasdfa" },
+        { type: "normal", text: " DEN4IKGO2 " },
+        { type: "redacted", text: "ENCRYPTED" },
+        { type: "normal", text: "\n              " },
+        { type: "redacted", text: "Всем пывфаывывsdasdfa" },
+        { type: "normal", text: "\n              " },
+        { type: "redacted", text: "Всем пывфаыпвапвавывsdasdfa" },
+        { type: "normal", text: "\n              " },
+        { type: "redacted", text: "VE" },
+        { type: "normal", text: " FRONTEND " },
+        { type: "redacted", text: "Iasdada AMgogijdgd " },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "CREATdasdasdasdaIdasdasdVISTfsdafs" },
+        { type: "normal", text: "\n              " },
+        { type: "redacted", text: "CREATIVE gasdaOGIST" },
+        { type: "normal", text: " BACKEND " },
+        { type: "redacted", text: "ATIVE" },
+        { type: "redacted", text: "\nCREATIVE TECHNOLasdasdasdOGIST" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "CdasR" },
+        { type: "normal", text: " FULSTACK " },
+        { type: "redacted", text: " CREATIdasdsgfOGIST" },
+        { type: "redacted", text: "\nCddsfsffsdsdfasaffssR" },
+        { type: "normal", text: " DEVELOPER " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "redacted", text: "\nCREATIVdgdsfgddfgEfsd OGIST" },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: " REACT " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: " NEST " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "CREATIVdgdsfgddfgEfsd OGIST" },
+        { type: "redacted", text: "\nTваып" },
+        { type: "normal", text: " WEB APPLICATION CREATOR " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "redacted", text: "\nCREATIVdgdsfgddfgEfsd OGIST" },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "fsdsfsfdsfdsfR" },
+        { type: "normal", text: " GIT " },
+        { type: "redacted", text: "fasR" },
+        { type: "normal", text: " API " },
+        { type: "redacted", text: "fsadasdsR" },
+        { type: "redacted", text: "\nfRgidjidiodsiododsfodfop" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "iodsiododsfodfop" },
+        { type: "normal", text: " DOCKER " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: "\n       " },
+        { type: "redacted", text: "fsdsfsfdsfdsfR" },
+        { type: "normal", text: " HTML " },
+        { type: "redacted", text: "fsdfasR" },
+        { type: "normal", text: " SCSS " },
+        { type: "redacted", text: "fsdfasR" },
+
+      ];
+
+      function createDocument() {
+        const container = document.getElementById("scrollingText");
+        container.innerHTML = ""; // Очищаем контейнер
+
+        // Создаем контент дважды для бесшовной анимации
+        for (let copy = 0; copy < 2; copy++) {
+          documentContent.forEach((item, index) => {
+            if (item.text.includes("\n")) {
+              const lines = item.text.split("\n");
+              lines.forEach((line, lineIndex) => {
+                if (lineIndex > 0) {
+                  const br = document.createElement("div");
+                  br.className = "line-break";
+                  container.appendChild(br);
+                }
+
+                if (line) {
+                  const span = document.createElement("span");
+                  span.className =
+                    item.type === "redacted" ? "redacted-text" : "normal-text";
+                  span.textContent = line;
+                  container.appendChild(span);
+                }
+              });
+            } else {
+              const span = document.createElement("span");
+              span.className =
+                item.type === "redacted" ? "redacted-text" : "normal-text";
+              span.textContent = item.text;
+              container.appendChild(span);
+            }
+          });
+
+          // Добавляем разделитель между копиями (опционально)
+          /* if (copy === 0) {
+            const separator = document.createElement("div");
+            separator.className = "line-break";
+            separator.style.height = "2em"; // Больший отступ между копиями
+            container.appendChild(separator);
+          } */
         }
-        
-        // Пример использования с вашими данными
-        updateProfile(
-            'HELLO WORLD!', 
-            'MARIE-LINNE BLOCK', 
-            ['AL/ML', 'Data Science', 'Creative Coding']
-        );
-        
-        // Для использования с другими данными, просто вызовите updateProfile с новыми значениями:
-        // updateProfile('YOUR TITLE', 'YOUR NAME', ['TAG 1', 'TAG 2', 'TAG 3']);
+      }
+
+      // Функция для обновления контента
+      function updateDocumentContent(newContent) {
+        documentContent.length = 0;
+        documentContent.push(...newContent);
+        createDocument();
+      }
+
+      // Функция для простого создания контента из текста с маркерами
+      function createFromMarkedText(text) {
+        const result = [];
+        const segments = text.split(/(\[REDACTED\]|\n)/);
+
+        segments.forEach((segment) => {
+          if (segment === "[REDACTED]") {
+            result.push({ type: "redacted", text: segment });
+          } else if (segment === "\n") {
+            result.push({ type: "normal", text: "\n" });
+          } else if (segment) {
+            result.push({ type: "normal", text: segment });
+          }
+        });
+
+        return result;
+      }
+
+      // Пример использования с вашими данными:
+      /*
+        const myText = "HELLO WORLD!\nI AM YOUR NAME\nSPECIALIZING IN AI/ML [REDACTED]\nSKILLS: PYTHON [REDACTED] TENSORFLOW";
+        const myContent = createFromMarkedText(myText);
+        updateDocumentContent(myContent);
+        */
+
+      // Запускаем создание документа
+      createDocument();
     </script>
-</body>
+  </body>
 </html>
