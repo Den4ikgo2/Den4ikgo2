@@ -1,22 +1,8 @@
-# Привет, я Денис!
+# Привет, меня зовут Денис!
 
-## О себе
-<table border="0px">
-  <tr>
-    <td width="30%" valign="top">
-      Привет! Я разработчик, находящийся на пути становления в Fullstack-разработке.
-    </td>
-    <td width="70%" height="400px" align="center">
-      <img src="https://github.com/Den4ikgo2/Den4ikgo2/blob/main/performance.gif" />
-    </td>
-  </tr>
-</table>
-
-## ? Текущие проекты
-– **Платформа аналитики данных** — разрабатываю масштабируемое решение для анализа больших данных с использованием Python и Apache Spark.
-– **API Gateway Service** — создаю централизованный шлюз для микросервисной архитектуры на FastAPI.
-– **Data Processing Library** — участвую в разработке open-source-библиотеки для эффективной обработки и валидации данных.
-– **Tech Blog** — веду технический блог о бэкенд-разработке и DevOps-практиках.
+<div>
+  <img src="https://github.com/Den4ikgo2/Den4ikgo2/blob/main/performance.gif" />
+</div>
 
 ## 🛠️ Технологический стек
 
@@ -30,14 +16,11 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black)
 
 ### Backend
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=sql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 
@@ -59,31 +42,51 @@
 
 ## 📊 GitHub Analytics
 
+![Profile status](profile-3d-contrib/profile-night-green.svg)
+
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Den4ikgo2&theme=dark&show_icons=true&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Den4ikgo2&theme=dark&layout=compact&hide_border=true)
+  <img src="https://github-readme-stats.vercel.app/api?username=Den4ikgo2&theme=dark&show_icons=true&hide_border=true" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Den4ikgo2&theme=dark&layout=compact&hide_border=true" alt="GitHub Stats" />
 
 </div>
 
-![Snake animation](https://github.com/Den4ikgo2/Den4ikgo2/blob/output/github-contribution-grid-snake-dark.svg)
+<p align="center">
+  <a href="https://git.io/streak-stats">
+    <img src="https://streak-stats.demolab.com?user=Den4ikgo2&theme=dark&hide_border=true&locale=ru&card_width=500" alt="GitHub Streak">
+  </a>
+</p>
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=Den4ikgo2&theme=dark&hide_border=true&locale=ru&card_width=500)](https://git.io/streak-stats)
+## О себе
 
-![Profile status](profile-3d-contrib/profile-night-green.svg)
+Frontend разработчик, находящийся на пути становления в Fullstack-разработке. Интересуюсь изучением полным циклом создания web-приложения, от написание первого компонента до автоматизации тестирования и доставки заинтересованным сторонам. 
 
-## Технический стек
-- JavaScript, TypeScripto
-- PostgreSQL, Redis
-- Docker
-- CI/CD, GitHub Actions
-- Apache Spark
-- Микросервисная архитектура
-- Data Processing
-- DevOps
+###  Что делаю:
 
-## ? Контакты
-- Email: rustam@example.com
-- LinkedIn: linkedin.com/in/rustam_example
-- Telegram: @rustam_dev_example
+-  Разрабатываю **React/Next.js** приложения с TypeScript
+-  Создаю **отзывчивые интерфейсы** с современным дизайном
+-  Применяю **FSD-архитектуру** для масштабируемых проектов
+-  Пишу **тесты** для обеспечения качества кода
+
+###  Что изучаю:
+
+- **Advanced React patterns** и оптимизация производительности
+- **Micro-frontends** и модульная архитектура
+- **CI/CD** интеграция в веб-приложения
+- Алгоритмы
+
+## Текущие проекты
+– **AquaLedStroy** — разрвбатываю frontend на React, с использование локального хранилища Redux.\
+– **FullStackAuthorization (Pet)** — создаю frontend (Next.js) и backend (NestJS). Использую базу данных Redis для локльного хранилища сессий и СУБД PostgreSQL для упраления данными пользователя в реляционной базе данных.\
+– **Redux Toolkit (Pet)** — использую все возможности библиотеки Redux Toolkit: dispatch, action, slice, RTK query.
+
+## 📫 Контакты
+- Email: den4ikgo2@yandex.ru
+- Telegram: @Den4ikgo2
+
+## 💼 Готов к сотрудничеству!
+
+С нетерпением жду возможности работать над интересными проектами вместе с талантливыми людьми!
+
+**Локация**: 🇷🇺 Россия, Омск  
+**Время**: UTC +06:00
